@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
@@ -61,7 +62,10 @@ const Router = createBrowserRouter([
       }
     ]
   }
-])
+],
+{
+  basename: '/Dashboard'
+})
 createRoot(document.getElementById('root')!).render(
 
   <StrictMode>
