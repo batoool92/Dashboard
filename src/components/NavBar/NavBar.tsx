@@ -3,6 +3,7 @@
 import { IoSearchSharp } from "react-icons/io5";
 import { IoMdMoon } from "react-icons/io";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface navVars {
   user_name: string;
@@ -10,24 +11,40 @@ interface navVars {
   image_URL: string;
 }
 const NavBar = () => {
-
+  const navigate = useNavigate()
   const [navValues, setValues] = useState<navVars | undefined>({
     user_name: '',
     email: '',
     image_URL: ''
   })
 
-  const Token_info = JSON.parse(localStorage?.getItem('user') || '')
+  const user = localStorage.getItem('user');
+  const Token_info = user ? JSON.parse(user) : ''
+  console.log(Token_info)
 
-  const user_n: string = Token_info.user['user_name']
-  const user_email: string = Token_info.user['email']
-  const img_URL: string = Token_info.user['profile_image_url']
+  let user_n: string = ''
+  let user_email: string = ''
+  let img_URL: string = ''
+
+  if (Token_info != '') {
+    user_n = Token_info?.user['user_name']
+    user_email = Token_info?.user['email']
+    img_URL = Token_info?.user['profile_image_url']
+  }
+  console.log(user_n + user_email + img_URL)
+
+
 
   const setUserInfo = () => {
     setValues({ ...navValues, ['user_name']: user_n, ['email']: user_email, ['image_URL']: img_URL })
   }
+  const goToLogin = () => {
+    navigate('/auth')
+  }
   useEffect(() => {
     if (Token_info) { setUserInfo() }
+    else
+      goToLogin()
   }, [])
 
 

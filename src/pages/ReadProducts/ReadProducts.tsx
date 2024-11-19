@@ -18,11 +18,14 @@ interface ArrayCards {
 }
 const ReadProducts = () => {
   const [ArrayItems, setArrayitems] = useState<ArrayCards>()
+  const navigate = useNavigate()
+  const Token = localStorage?.getItem('user')
+
   const set = (data: ArrayCards) => {
     setArrayitems(data)
   }
-  const navigate = useNavigate()
-  const Token = localStorage?.getItem('user')
+
+
   useEffect(() => {
     if (Token) {
       axios.get('https://vica.website/api/items', {
@@ -31,6 +34,9 @@ const ReadProducts = () => {
         }
       }).then((res) => set(res.data))
 
+    }
+    else {
+      console.log("first")
     }
   }, [])
 

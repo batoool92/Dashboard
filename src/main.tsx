@@ -3,7 +3,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import './index.css'
-import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Auth from './pages/Auth/Auth'
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
@@ -64,8 +64,8 @@ const Router = createBrowserRouter([
   }
 ],
 {
-  basename: '/'
-})
+  basename: '/',
+});
 createRoot(document.getElementById('root')!).render(
 
   <StrictMode>
