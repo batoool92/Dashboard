@@ -40,7 +40,6 @@ const Form = ({ title, desc, inputs, btn, end, URL }: FormParam) => {
     }
     if (selectedFile) {   
       setData({ ...data, [name]: selectedFile })
-      console.log(data)
     }
  
   }
@@ -53,7 +52,7 @@ const Form = ({ title, desc, inputs, btn, end, URL }: FormParam) => {
     }).then(res => {
             localStorage.setItem('user', JSON.stringify(res.data))
 
-      navigate('/ReadProducts')
+      navigate('/')
     }).catch(error => console.log(error))
   }
   // 

@@ -17,10 +17,8 @@ const NavBar = () => {
     email: '',
     image_URL: ''
   })
-
   const user = localStorage.getItem('user');
   const Token_info = user ? JSON.parse(user) : ''
-  console.log(Token_info)
 
   let user_n: string = ''
   let user_email: string = ''
@@ -31,10 +29,6 @@ const NavBar = () => {
     user_email = Token_info?.user['email']
     img_URL = Token_info?.user['profile_image_url']
   }
-  console.log(user_n + user_email + img_URL)
-
-
-
   const setUserInfo = () => {
     setValues({ ...navValues, ['user_name']: user_n, ['email']: user_email, ['image_URL']: img_URL })
   }

@@ -35,9 +35,7 @@ const ReadProducts = () => {
       }).then((res) => set(res.data))
 
     }
-    else {
-      console.log("first")
-    }
+
   }, [])
 
 

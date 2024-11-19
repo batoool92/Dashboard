@@ -39,7 +39,7 @@ const Router = createBrowserRouter([
         element: <Products />,
         children: [
           {
-            path: 'ReadProducts',
+            path: '',
             element: <ReadProducts />
           },
           {
