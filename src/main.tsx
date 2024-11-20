@@ -64,7 +64,7 @@ const Router = createBrowserRouter([
   }
 ],
 {
-  basename: '/',
+  basename: '/Dashboard',
 });
 createRoot(document.getElementById('root')!).render(
 
